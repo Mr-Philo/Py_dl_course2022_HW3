@@ -1,0 +1,57 @@
+arch: pointnet
+calc_scores: softmax
+dropout: 0.5
+eval: True
+exp_name: pointnet_paconv_test
+k_neighbors: 30
+manual_seed: 0
+no_cuda: False
+num_matrices: [8, 8, 8]
+num_points: 1024
+test_batch_size: 16
+workers: 6
+Using GPU
+PAConv(
+  (scorenet2): ScoreNet(
+    (mlp_convs_hidden): ModuleList(
+      (0): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): Conv2d(16, 8, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (mlp_bns_hidden): ModuleList(
+      (0): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (scorenet3): ScoreNet(
+    (mlp_convs_hidden): ModuleList(
+      (0): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): Conv2d(16, 8, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (mlp_bns_hidden): ModuleList(
+      (0): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (scorenet4): ScoreNet(
+    (mlp_convs_hidden): ModuleList(
+      (0): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): Conv2d(16, 8, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (mlp_bns_hidden): ModuleList(
+      (0): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn3): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn4): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn5): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv1): Conv1d(3, 64, kernel_size=(1,), stride=(1,), bias=False)
+  (conv5): Conv1d(128, 1024, kernel_size=(1,), stride=(1,), bias=False)
+  (linear1): Linear(in_features=1024, out_features=512, bias=False)
+  (bn6): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (dp1): Dropout(p=0.5, inplace=False)
+  (linear2): Linear(in_features=512, out_features=40, bias=True)
+)
+Test :: test acc: 0.928282, test avg acc: 0.888872
